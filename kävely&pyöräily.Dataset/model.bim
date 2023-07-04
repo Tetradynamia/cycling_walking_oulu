@@ -1,0 +1,2181 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"siteChannels\",\"channelData\",\"timePeriods\",\"Calendar\",\"Time\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.118.828.0 (23.06)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "8cfe1830-2372-4010-9eb6-60d90ffc82d0",
+        "fromColumn": "channelId",
+        "fromTable": "channelData",
+        "toColumn": "siteId",
+        "toTable": "siteChannels"
+      },
+      {
+        "name": "a1f81ec6-3427-4906-a34b-32a6ab978f08",
+        "fromColumn": "date",
+        "fromTable": "channelData",
+        "toColumn": "Date",
+        "toTable": "Calendar"
+      },
+      {
+        "name": "34e0dc82-0254-453c-8101-7e948b434201",
+        "fromColumn": "time",
+        "fromTable": "channelData",
+        "toColumn": "Time",
+        "toTable": "Time"
+      }
+    ],
+    "sourceQueryCulture": "fi-FI",
+    "tables": [
+      {
+        "name": "Calendar",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "CurFiscalYearOffset",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "96b8f116-7344-4283-8916-8d61c63f8b28",
+            "sourceColumn": "CurFiscalYearOffset",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CurMonthOffset",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "bb8a2184-58f1-4a1e-8c17-49d70b79cb80",
+            "sourceColumn": "CurMonthOffset",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CurQuarterOffset",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "31bce982-4eda-4fba-99f7-908808d9ef9a",
+            "sourceColumn": "CurQuarterOffset",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CurWeekOffset",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e0afcc96-8025-4ad8-a4af-ebdadad4e349",
+            "sourceColumn": "CurWeekOffset",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CurYearOffset",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "d938c2e6-178a-4e44-8dfa-0b2bd49db587",
+            "sourceColumn": "CurYearOffset",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CurrentDayOffset",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "9b9177ca-95aa-4b13-9ad1-40e8f14eb545",
+            "sourceColumn": "CurrentDayOffset",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "isKey": true,
+            "lineageTag": "f72283bc-8c4b-4327-8207-ae4b2da6daf8",
+            "sourceColumn": "Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Day of Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b1b75044-8bfe-4cc0-9c80-361c9fe87802",
+            "sourceColumn": "Day of Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DayOfMonth",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "DAY('Calendar'[Date])",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "78e30e7b-e1a9-4f00-b0a3-7db8e3980783",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "FiscalMonth",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "66c0abdd-6599-47a0-b6ea-067c40517d52",
+            "sourceColumn": "FiscalMonth",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalMonthLong",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f44b3d72-8fdd-4df0-a1a3-affe37cb32c6",
+            "sortByColumn": "MonthNum",
+            "sourceColumn": "FiscalMonthLong",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalMonthNum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "4f7a7557-f370-44f0-b993-c14f0b4fe228",
+            "sourceColumn": "FiscalMonthNum",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalQuarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2ecad27f-7001-414c-b6d3-45c0689c963c",
+            "sourceColumn": "FiscalQuarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FiscalYear",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "44f49b74-dca0-4553-8b3c-4babf5ea4256",
+            "sourceColumn": "FiscalYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Flag_MTD",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e1fdf287-0828-4461-80a3-6e97988b778c",
+            "sourceColumn": "Flag_MTD",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Flag_QTD",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "144db0f6-b734-4574-8e6e-a2070bfd91dd",
+            "sourceColumn": "Flag_QTD",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Flag_YTD",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1e4ba0c9-c150-40a1-b63c-ddb03e8a406a",
+            "sourceColumn": "Flag_YTD",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FutureDate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cb891729-9b5c-4425-b2ef-ea49249e6419",
+            "sourceColumn": "FutureDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "950ed8b7-4b57-4880-ae61-35d65e86c0c6",
+            "sourceColumn": "Month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MonthLong",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8be2a81c-e3c5-4214-81a1-ad15853ae810",
+            "sortByColumn": "MonthNum",
+            "sourceColumn": "MonthLong",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MonthNum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "aaef2b16-a855-4699-8486-24bb753af2e1",
+            "sourceColumn": "MonthNum",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MonthYear",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0e7fe7d9-8e83-4a91-ad18-2ebc3c933c84",
+            "sourceColumn": "MonthYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MonthYearLong",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c3a53a1e-d260-41f2-9ec7-3eec4e833c56",
+            "sortByColumn": "CurMonthOffset",
+            "sourceColumn": "MonthYearLong",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MonthYearNum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ae83d124-b41b-40bc-91df-ef69b8fee105",
+            "sourceColumn": "MonthYearNum",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "75260b39-7ab1-488f-931f-3d798bdaf59f",
+            "sourceColumn": "Quarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Week of Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "56ffded6-20c7-4b2f-b257-2ab6f016028b",
+            "sourceColumn": "Week of Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "WeekDate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "5a56f6e1-043c-45c4-8133-ab231de6b2df",
+            "sourceColumn": "WeekDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "WeekSequenceNum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "6c30b927-36dc-4f37-b6dd-8166b634dad4",
+            "sourceColumn": "WeekSequenceNum",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "WeekYearLong",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "expression": "'Calendar'[Week of Year] & \"-\" & 'Calendar'[Year]",
+            "isDataTypeInferred": true,
+            "lineageTag": "47a5ba38-9d92-45eb-ab25-da71726c4440",
+            "sortByColumn": "CurWeekOffset",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Weekday",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a33b0099-7355-4965-8184-0645de95b7b2",
+            "sortByColumn": "WeekdayNum",
+            "sourceColumn": "Weekday",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "WeekdayNum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "2c27d163-9c1a-4ce8-ad4b-85421fc57190",
+            "sourceColumn": "WeekdayNum",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "WeekdayWeekend",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "39469be4-3a72-4b68-8298-5d0042221183",
+            "sourceColumn": "WeekdayWeekend",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c1738b9a-f3e4-4c7f-a9a7-ef3ed3f34918",
+            "sourceColumn": "Year",
+            "summarizeBy": "none"
+          }
+        ],
+        "dataCategory": "Time",
+        "lineageTag": "4fb33f09-aa38-44b0-bcb5-e8d70dae37f0",
+        "partitions": [
+          {
+            "name": "Calendar-1058763f-24f9-46d1-bfbc-de1c13e46693",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    /*",
+                "    ****This Calendar was created and provided by Avi Singh****",
+                "    ****This can be freely shared as long as this text comment is retained.****",
+                "    http://www.youtube.com/PowerBIPro",
+                "    www.LearnPowerBI.com by Avi Singh",
+                "    */",
+                "    #\"LearnPowerBI.com by Avi Singh\" = 1,",
+                "    StartDate = #date(2014, 1, 1),",
+                "    EndDate = Date.EndOfYear(DateTime.Date(DateTime.FixedLocalNow())) /*was \"#date(2017, 1, 1)\" Updated on 201802027: hard Coded End of Year caused some formulas to break, switching to dynamic date*/,",
+                "    //Used for 'Offset' Column calculations, you may Hard code CurrentDate for testing e.g. #date(2017,9,1)",
+                "    CurrentDate = DateTime.Date(DateTime.FixedLocalNow()),",
+                "    // Specify the last month in your Fiscal Year, e.g. if June is the last month of your Fiscal Year, specify 6",
+                "    FiscalYearEndMonth = 6,",
+                "    #\"==SET PARAMETERS ABOVE==\" = 1,",
+                "    #\"==Build Date Column==\" = #\"==SET PARAMETERS ABOVE==\",",
+                "    ListDates = List.Dates(StartDate, Number.From(EndDate - StartDate)+1, #duration(1,0,0,0)),",
+                "    #\"Converted to Table\" = Table.FromList(ListDates, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
+                "    #\"Renamed Columns as Date\" = Table.RenameColumns(#\"Converted to Table\",{{\"Column1\", \"Date\"}}),",
+                "    // As far as Power BI is concerned, the 'Date' column is all that is needed :-) But we will continue and add a few Human-Friendly Columns",
+                "    #\"Changed Type to Date\" = Table.TransformColumnTypes(#\"Renamed Columns as Date\",{{\"Date\", type date}}),",
+                "    #\"==Add Calendar Columns==\" = #\"Changed Type to Date\",",
+                "    #\"Added Calendar MonthNum\" = Table.AddColumn(#\"==Add Calendar Columns==\", \"MonthNum\", each Date.Month([Date]), Int64.Type),",
+                "    #\"Added Month Name\" = Table.AddColumn(#\"Added Calendar MonthNum\", \"Month\", each Text.Start(Date.MonthName([Date]),3), type text),",
+                "    #\"Added Month Name Long\" = Table.AddColumn(#\"Added Month Name\", \"MonthLong\", each Date.MonthName([Date]), type text),",
+                "    #\"Added Calendar Quarter\" = Table.AddColumn(#\"Added Month Name Long\", \"Quarter\", each \"Q\" & Text.From(Date.QuarterOfYear([Date]))),",
+                "    #\"Added Calendar Year\" = Table.AddColumn(#\"Added Calendar Quarter\", \"Year\", each Date.Year([Date]), Int64.Type),",
+                "    #\"==Add Fiscal Calendar Columns==\" = #\"Added Calendar Year\",",
+                "    #\"Added FiscalMonthNum\" = Table.AddColumn(#\"==Add Fiscal Calendar Columns==\", \"FiscalMonthNum\", each if [MonthNum] > FiscalYearEndMonth",
+                "then [MonthNum] - FiscalYearEndMonth",
+                "else [MonthNum] + (12 - FiscalYearEndMonth), type number),",
+                "    #\"Added FiscalMonth Name\" = Table.AddColumn(#\"Added FiscalMonthNum\", \"FiscalMonth\", each [Month]),",
+                "    #\"Added FiscalMonth Name Long\" = Table.AddColumn(#\"Added FiscalMonth Name\", \"FiscalMonthLong\", each [MonthLong]),",
+                "    #\"Added FiscalQuarter\" = Table.AddColumn(#\"Added FiscalMonth Name Long\", \"FiscalQuarter\", each \"FQ\" & Text.From(Number.RoundUp([FiscalMonthNum] / 3,0))),",
+                "    #\"Added FiscalYear\" = Table.AddColumn(#\"Added FiscalQuarter\", \"FiscalYear\", each \"FY\" & ",
+                "Text.End(",
+                "  Text.From(",
+                "    if [MonthNum] > FiscalYearEndMonth",
+                "    then [Year] + 1",
+                "    else [Year]",
+                "  )",
+                "  , 2",
+                ")),",
+                "",
+                "    #\"==Add Calendar Date Offset Columns==\" = #\"Added FiscalYear\",",
+                "    // Can be used to for example to show the past 3 months(CurMonthOffset = 0, -1, -2)",
+                "    #\"Added CurMonthOffset\" = Table.AddColumn(#\"==Add Calendar Date Offset Columns==\", \"CurMonthOffset\", each ( Date.Year([Date]) - Date.Year(CurrentDate) ) * 12",
+                "+ Date.Month([Date]) - Date.Month(CurrentDate), Int64.Type),",
+                "    // Can be used to for example to show the past 3 quarters (CurQuarterOffset = 0, -1, -2)",
+                "    #\"Added CurQuarterOffset\" = Table.AddColumn(#\"Added CurMonthOffset\", \"CurQuarterOffset\", each /*Year Difference*/",
+                "       ( Date.Year([Date]) - Date.Year(CurrentDate) )*4",
+                "       /*Quarter Difference*/",
+                "      + Number.RoundUp(Date.Month([Date]) / 3) ",
+                "      - Number.RoundUp(Date.Month(CurrentDate) / 3),",
+                "Int64.Type),",
+                "    // Can be used to for example to show the past 3 years (CurYearOffset = 0, -1, -2)",
+                "    #\"Added CurYearOffset\" = Table.AddColumn(#\"Added CurQuarterOffset\", \"CurYearOffset\", each Date.Year([Date]) - Date.Year(CurrentDate), Int64.Type),",
+                "    // Can be used to for example filter out all future dates",
+                "    #\"Added FutureDate Flag\" = Table.AddColumn(#\"Added CurYearOffset\", \"FutureDate\", each if [Date] > CurrentDate then \"Future\" else \"Past\" ),",
+                "    // FiscalYearOffset is the only Offset that is different.",
+                "    // FiscalQuarterOffset = is same as CurQuarterOffset",
+                "    // FiscalMonthOffset = is same as CurMonthOffset",
+                "    #\"==Add FiscalYearOffset==\" = #\"Added FutureDate Flag\",",
+                "    #\"Filtered Rows to CurrentDate\" = Table.SelectRows(#\"==Add FiscalYearOffset==\", each ([Date] = CurrentDate)),",
+                "    CurrentFiscalYear = #\"Filtered Rows to CurrentDate\"{0}[FiscalYear],",
+                "    #\"Continue...Orig Table\" = #\"==Add FiscalYearOffset==\",",
+                "    #\"Added CurFiscalYearOffset\" = Table.AddColumn(#\"Continue...Orig Table\", \"CurFiscalYearOffset\", each Number.From(Text.Range([FiscalYear],2,2)) - ",
+                "Number.From(Text.Range(CurrentFiscalYear,2,2))",
+                "/*Extract the numerical portion, e.g. FY18 = 18*/),",
+                "    #\"==Add General Columns==\" = #\"Added CurFiscalYearOffset\",",
+                "    // Used as 'Sort by Column' for MonthYear columns",
+                "    #\"Added MonthYearNum\" = Table.AddColumn(#\"==Add General Columns==\", \"MonthYearNum\", each [Year]*100 + [MonthNum] /*e.g. Sep-2016 would become 201609*/, Int64.Type),",
+                "    #\"Added MonthYear\" = Table.AddColumn(#\"Added MonthYearNum\", \"MonthYear\", each [Month] & \"-\" & Text.End(Text.From([Year]),2)),",
+                "    #\"Added MonthYearLong\" = Table.AddColumn(#\"Added MonthYear\", \"MonthYearLong\", each [Month] & \"-\" & Text.From([Year])),",
+                "    #\"Added WeekdayNum\" = Table.AddColumn(#\"Added MonthYearLong\", \"WeekdayNum\", each Date.DayOfWeek([Date]), Int64.Type),",
+                "    #\"Added Weekday Name\" = Table.AddColumn(#\"Added WeekdayNum\", \"Weekday\", each Text.Start(Date.DayOfWeekName([Date]),3), type text),",
+                "    #\"Added WeekdayWeekend\" = Table.AddColumn(#\"Added Weekday Name\", \"WeekdayWeekend\", each if [WeekdayNum] = 0 or [WeekdayNum] = 6",
+                "then \"Weekend\"",
+                "else \"Weekday\"),",
+                "    #\"==Improve Ultimate Table\" = #\"Added WeekdayWeekend\",",
+                "    #\"----Add WeekSequenceNum----\" = #\"==Improve Ultimate Table\",",
+                "    #\"Filtered Rows Sundays Only (Start of Week)\" = Table.SelectRows(#\"----Add WeekSequenceNum----\", each ([WeekdayNum] = 0)),",
+                "    #\"Added Index WeekSequenceNum\" = Table.AddIndexColumn(#\"Filtered Rows Sundays Only (Start of Week)\", \"WeekSequenceNum\", 2, 1),",
+                "    #\"Merged Queries Ultimate Table to WeekSequenceNum\" = Table.NestedJoin(#\"==Improve Ultimate Table\",{\"Date\"},#\"Added Index WeekSequenceNum\",{\"Date\"},\"Added Index WeekNum\",JoinKind.LeftOuter),",
+                "    #\"Expanded Added Index WeekNum\" = Table.ExpandTableColumn(#\"Merged Queries Ultimate Table to WeekSequenceNum\", \"Added Index WeekNum\", {\"WeekSequenceNum\"}, {\"WeekSequenceNum\"}),",
+                "    // somehow it ends up being unsorted after Expand Column, should not matter for the end table, but makes it harder to debug and check everything is correct. Thus sorting it.",
+                "    #\"ReSorted Rows by Date\" = Table.Sort(#\"Expanded Added Index WeekNum\",{{\"Date\", Order.Ascending}}),",
+                "    #\"Filled Down WeekSequenceNum\" = Table.FillDown(#\"ReSorted Rows by Date\",{\"WeekSequenceNum\"}),",
+                "    #\"Replaced Value WeekSequenceNum null with 1\" = Table.ReplaceValue(#\"Filled Down WeekSequenceNum\",null,1,Replacer.ReplaceValue,{\"WeekSequenceNum\"}),",
+                "    #\"Inserted Start of Week (WeekDate)\" = Table.AddColumn(#\"Replaced Value WeekSequenceNum null with 1\", \"WeekDate\", each Date.StartOfWeek([Date]), type date),",
+                "    // Added 2019-Oct",
+                "    #\"Inserted Week of Year\" = Table.AddColumn(#\"Inserted Start of Week (WeekDate)\", \"Week of Year\", each Date.WeekOfYear([Date]), Int64.Type),",
+                "    #\"----WeekSequenceNum Complete----\" = #\"Inserted Week of Year\",",
+                "    Current_WeekSequenceNum = #\"----WeekSequenceNum Complete----\"{[Date = CurrentDate]}?[WeekSequenceNum],",
+                "    #\"Added Custom CurWeekOffset\" = Table.AddColumn(#\"----WeekSequenceNum Complete----\", \"CurWeekOffset\", each [WeekSequenceNum] - Current_WeekSequenceNum, Int64.Type),",
+                "    // Adding a DayofYear 1 to 365",
+                "    // And YTD, QTD, MTD Columns (can help with showing YTD Numbers across multiple years)",
+                "    #\"==Updates 2019-Feb DayofYear and YTD QTD MTD Columns\" = #\"Added Custom CurWeekOffset\",",
+                "    // This maybe useful in some DAX Calculations",
+                "    #\"Inserted Day of Year\" = Table.AddColumn(#\"==Updates 2019-Feb DayofYear and YTD QTD MTD Columns\", \"Day of Year\", each Date.DayOfYear([Date]), Int64.Type),",
+                "    #\"Added Flag_YTD\" = Table.AddColumn(#\"Inserted Day of Year\", \"Flag_YTD\", each if Date.DayOfYear([Date]) <= Date.DayOfYear(CurrentDate)",
+                " then \"YTD\"",
+                " else null),",
+                "    #\"Added Flag_MTD\" = Table.AddColumn(#\"Added Flag_YTD\", \"Flag_MTD\", each if Date.Day([Date]) <= Date.Day(CurrentDate)",
+                " then \"MTD\"",
+                " else null),",
+                "    #\"Added Flag_QTD\" = Table.AddColumn(#\"Added Flag_MTD\", \"Flag_QTD\", each //Compare Month Number in Quarter (1,2,3) for [Date] and CurrentDate",
+                "if Number.Mod(Date.Month([Date])-1, 3) + 1",
+                "<= Number.Mod(Date.Month(CurrentDate)-1, 3) + 1",
+                "then \"QTD\"",
+                "else null),",
+                "    #\"==Update 2019-Mar CurrentDatOffset\" = #\"Added Flag_QTD\",",
+                "    #\"Added CurrentDayOffset\" = Table.AddColumn(#\"==Update 2019-Mar CurrentDatOffset\", \"CurrentDayOffset\", each [Date] - CurrentDate),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Added CurrentDayOffset\",{{\"CurrentDayOffset\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DateTableTemplate_4fc02473-aa07-4f0b-a0be-287bd4d5b3ca",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "9a6f1d8f-55e7-4945-9f43-d379142e5d1e",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "157c93fa-8efa-41fc-845f-fd8d9e0da868",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "24cf5405-6099-4dcd-87bb-85e3bca79727",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "c613eb8b-1f37-40e6-8a48-2f19c5ee987b",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "1e9e5893-868f-425b-ba47-679912dbd8b3",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "b84ccc47-5101-4b7d-bbd8-96f19799c5a2",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "83ef822e-992e-4982-8c83-88ebc2006a6f",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "eedca8c6-4d69-4ebb-9354-c2c954ae3ecf",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "bfa00b3f-8416-4f3d-8769-37619d74d403",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "6142dda1-da53-4b89-92ca-00b37cd97c08",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "367a4c73-bc13-4eb6-9a93-860d73bab958",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "4fde1f9a-b921-4ecb-b918-394addfff5f6"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "e550b181-32cc-442e-924f-a2a11d392bd2",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_4fc02473-aa07-4f0b-a0be-287bd4d5b3ca-36128dad-7ac7-4f4b-93d2-52ed835759d5",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Legend",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "99ca368d073c4597b9cd4cc0598487c4"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Legend",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "65e1736a-1add-46a6-a35f-527e7980ab10",
+            "relatedColumnDetails": {
+              "groupByColumns": [
+                {
+                  "groupingColumn": "Legend Fields"
+                }
+              ]
+            },
+            "sortByColumn": "Legend Order",
+            "sourceColumn": "[Value1]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Legend Fields",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "kind": 2,
+                  "version": 3
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "1724f325-424c-490d-aebd-375aee0f2164",
+            "sortByColumn": "Legend Order",
+            "sourceColumn": "[Value2]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Legend Order",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "037a3572-73d6-47cd-9458-5996b6e10d92",
+            "sourceColumn": "[Value3]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "bb20f9f9-df2b-4973-8266-955a073d09a3",
+        "partitions": [
+          {
+            "name": "Legend-6041b37a-9c97-4a21-937c-7e366f7f1126",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "{",
+                "    (\"Suunta\", NAMEOF('siteChannels'[direction_label]), 1),",
+                "    (\"Tyyppi\", NAMEOF('siteChannels'[userType_label]), 0)",
+                "}"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Time",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "AM/PM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "275435a7-0f46-419d-bd71-495e64565ed7",
+            "sourceColumn": "AM/PM",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "60aaf83e-24ec-4dbc-98b8-029873518aa0",
+            "sourceColumn": "Hour",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hour Bin 12",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "3cd67a25-5a30-46e1-bb80-5c4c77af41ab",
+            "sourceColumn": "Hour Bin 12",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hour Bin 2",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "fd71e125-3780-4e3e-a6b6-4e1e1aaf4629",
+            "sourceColumn": "Hour Bin 2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hour Bin 3",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "df3ffe0e-dac4-4564-a5af-abcc1e15826a",
+            "sourceColumn": "Hour Bin 3",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hour Bin 4",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "48cc2d10-4e38-466d-99e7-40ca9118898f",
+            "sourceColumn": "Hour Bin 4",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hour Bin 6",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b61a9887-6dd2-4536-90bc-245bb2b5de5e",
+            "sourceColumn": "Hour Bin 6",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hour Bin 8",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ca3dbb66-6333-4a0c-934a-2a2624a8a94e",
+            "sourceColumn": "Hour Bin 8",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Hour Label",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6c9a681a-9c61-41ca-99b9-64598ebae818",
+            "sourceColumn": "Hour Label",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Minute",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c6771de3-c952-4738-88df-fbe18c0d8210",
+            "sourceColumn": "Minute",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Minute Bin 10",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "9e705cd4-a251-43ee-9cc5-ff4cf8f947a4",
+            "sourceColumn": "Minute Bin 10",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Minute Bin 15",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "c91aaf6f-3c52-4315-92f8-d55763861b13",
+            "sourceColumn": "Minute Bin 15",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Minute Bin 30",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "7427b98a-f962-4b27-acd2-732750c9b906",
+            "sourceColumn": "Minute Bin 30",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Minute Label",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e436cfb1-f471-41cc-b850-f8aee7f7e040",
+            "sourceColumn": "Minute Label",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Second",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "05c6ec2f-ca7a-4a02-b09f-81becbb51527",
+            "sourceColumn": "Second",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Second Label",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "99efd242-7222-4d1c-8f01-3043b2d96f74",
+            "sourceColumn": "Second Label",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Time"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Time",
+            "lineageTag": "b295117b-73b9-4567-b3a8-5e51ea34fa87",
+            "sourceColumn": "Time",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TimeKey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "0b30b3ef-fe17-45c4-bc7f-ad6e004f170f",
+            "sourceColumn": "TimeKey",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "1520951c-4680-405b-86e0-a72de92d8969",
+        "partitions": [
+          {
+            "name": "Time-1ecbe627-2ada-4c2b-b065-ea3de27e6a5e",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = List.Times(#time(0,0,0),24*60*60,#duration(0,0,0,1)),",
+                "    #\"Converted to Table\" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Converted to Table\",{{\"Column1\", \"Time\"}}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"Time\", type time}}),",
+                "    #\"Inserted Hour\" = Table.AddColumn(#\"Changed Type\", \"Hour\", each Time.Hour([Time]), Int64.Type),",
+                "    #\"Inserted Minute\" = Table.AddColumn(#\"Inserted Hour\", \"Minute\", each Time.Minute([Time]), Int64.Type),",
+                "    #\"Inserted Second\" = Table.AddColumn(#\"Inserted Minute\", \"Second\", each Time.Second([Time]), type number),",
+                "    #\"Added Conditional Column\" = Table.AddColumn(#\"Inserted Second\", \"AM/PM\", each if [Hour] < 12 then \"a.m.\" else \"p.m.\"),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Added Conditional Column\",{{\"AM/PM\", type text}}),",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(#\"Changed Type1\", \"Time\", \"Time - Copy\"),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Duplicated Column\",{\"Time - Copy\"}),",
+                "    #\"Duplicated Column1\" = Table.DuplicateColumn(#\"Removed Columns\", \"Hour\", \"Hour - Copy\"),",
+                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Duplicated Column1\",{{\"Hour - Copy\", \"Hour label\"}}),",
+                "    #\"Changed Type2\" = Table.TransformColumnTypes(#\"Renamed Columns1\",{{\"Hour label\", type text}}),",
+                "    #\"Removed Columns1\" = Table.RemoveColumns(#\"Changed Type2\",{\"Hour label\"}),",
+                "    #\"Inserted Prefix\" = Table.AddColumn(#\"Removed Columns1\", \"Prefix\", each \"0\" & Text.From([Hour], \"en-NZ\"), type text),",
+                "    #\"Renamed Columns2\" = Table.RenameColumns(#\"Inserted Prefix\",{{\"Prefix\", \"Hour Label\"}}),",
+                "    #\"Extracted Last Characters\" = Table.TransformColumns(#\"Renamed Columns2\", {{\"Hour Label\", each Text.End(_, 2), type text}}),",
+                "    #\"Inserted Prefix1\" = Table.AddColumn(#\"Extracted Last Characters\", \"Prefix\", each \"0\" & Text.From([Minute], \"en-NZ\"), type text),",
+                "    #\"Renamed Columns3\" = Table.RenameColumns(#\"Inserted Prefix1\",{{\"Prefix\", \"Minute Label\"}}),",
+                "    #\"Extracted Last Characters1\" = Table.TransformColumns(#\"Renamed Columns3\", {{\"Minute Label\", each Text.End(_, 2), type text}}),",
+                "    #\"Inserted Prefix2\" = Table.AddColumn(#\"Extracted Last Characters1\", \"Prefix\", each \"0\" & Text.From([Second], \"en-NZ\"), type text),",
+                "    #\"Renamed Columns4\" = Table.RenameColumns(#\"Inserted Prefix2\",{{\"Prefix\", \"Second Label\"}}),",
+                "    #\"Extracted Last Characters2\" = Table.TransformColumns(#\"Renamed Columns4\", {{\"Second Label\", each Text.End(_, 2), type text}}),",
+                "    #\"Added Index\" = Table.AddIndexColumn(#\"Extracted Last Characters2\", \"Index\", 0, 1),",
+                "    #\"Renamed Columns5\" = Table.RenameColumns(#\"Added Index\",{{\"Index\", \"TimeKey\"}}),",
+                "    #\"Inserted Modulo\" = Table.AddColumn(#\"Renamed Columns5\", \"Modulo\", each Number.Mod([Hour], 12), type number),",
+                "    #\"Renamed Columns6\" = Table.RenameColumns(#\"Inserted Modulo\",{{\"Modulo\", \"Hour Bin 12\"}}),",
+                "    #\"Inserted Integer-Division\" = Table.AddColumn(#\"Renamed Columns6\", \"Integer-Division\", each Number.IntegerDivide([Hour], 8), Int64.Type),",
+                "    #\"Renamed Columns7\" = Table.RenameColumns(#\"Inserted Integer-Division\",{{\"Integer-Division\", \"Hour Bin 8\"}}),",
+                "    #\"Inserted Integer-Division1\" = Table.AddColumn(#\"Renamed Columns7\", \"Integer-Division\", each Number.IntegerDivide([Hour], 6), Int64.Type),",
+                "    #\"Renamed Columns8\" = Table.RenameColumns(#\"Inserted Integer-Division1\",{{\"Integer-Division\", \"Hour Bin 6\"}}),",
+                "    #\"Inserted Integer-Division2\" = Table.AddColumn(#\"Renamed Columns8\", \"Integer-Division\", each Number.IntegerDivide([Hour], 4), Int64.Type),",
+                "    #\"Renamed Columns9\" = Table.RenameColumns(#\"Inserted Integer-Division2\",{{\"Integer-Division\", \"Hour Bin 4\"}}),",
+                "    #\"Inserted Integer-Division3\" = Table.AddColumn(#\"Renamed Columns9\", \"Integer-Division\", each Number.IntegerDivide([Hour], 3), Int64.Type),",
+                "    #\"Renamed Columns10\" = Table.RenameColumns(#\"Inserted Integer-Division3\",{{\"Integer-Division\", \"Hour Bin 3\"}}),",
+                "    #\"Inserted Integer-Division4\" = Table.AddColumn(#\"Renamed Columns10\", \"Integer-Division\", each Number.IntegerDivide([Hour], 2), Int64.Type),",
+                "    #\"Renamed Columns11\" = Table.RenameColumns(#\"Inserted Integer-Division4\",{{\"Integer-Division\", \"Hour Bin 2\"}}),",
+                "    #\"Inserted Integer-Division5\" = Table.AddColumn(#\"Renamed Columns11\", \"Integer-Division\", each Number.IntegerDivide([Minute], 30), Int64.Type),",
+                "    #\"Multiplied Column\" = Table.TransformColumns(#\"Inserted Integer-Division5\", {{\"Integer-Division\", each _ * 30, type number}}),",
+                "    #\"Renamed Columns12\" = Table.RenameColumns(#\"Multiplied Column\",{{\"Integer-Division\", \"Minute Bin 30\"}}),",
+                "    #\"Inserted Integer-Division6\" = Table.AddColumn(#\"Renamed Columns12\", \"Integer-Division\", each Number.IntegerDivide([Minute], 15), Int64.Type),",
+                "    #\"Multiplied Column1\" = Table.TransformColumns(#\"Inserted Integer-Division6\", {{\"Integer-Division\", each _ * 15, type number}}),",
+                "    #\"Renamed Columns13\" = Table.RenameColumns(#\"Multiplied Column1\",{{\"Integer-Division\", \"Minute Bin 15\"}}),",
+                "    #\"Inserted Integer-Division7\" = Table.AddColumn(#\"Renamed Columns13\", \"Integer-Division\", each Number.IntegerDivide([Minute], 10), Int64.Type),",
+                "    #\"Multiplied Column2\" = Table.TransformColumns(#\"Inserted Integer-Division7\", {{\"Integer-Division\", each _ * 10, type number}}),",
+                "    #\"Renamed Columns14\" = Table.RenameColumns(#\"Multiplied Column2\",{{\"Integer-Division\", \"Minute Bin 10\"}})",
+                "in",
+                "    #\"Renamed Columns14\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Y-akseli",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "153adcead0c449cbadd0dcfe7c643d46"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Value4",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "91dcb1f9-9738-4359-907a-ef6b04b41aa6",
+            "sourceColumn": "[Value4]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Y-akseli",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "dadfd0b9-62d7-42cd-ae39-18770cb1690b",
+            "relatedColumnDetails": {
+              "groupByColumns": [
+                {
+                  "groupingColumn": "Y-akseli Fields"
+                }
+              ]
+            },
+            "sortByColumn": "Y-akseli Order",
+            "sourceColumn": "[Value1]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Y-akseli Fields",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "kind": 2,
+                  "version": 3
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "cea2c7dd-3f92-48c0-8635-d7cdbe5d28e6",
+            "sortByColumn": "Y-akseli Order",
+            "sourceColumn": "[Value2]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Y-akseli Order",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "938d0c23-4372-4cd2-806e-759802676d28",
+            "sourceColumn": "[Value3]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "7cc80af1-aa3e-40b3-89b8-da0fde3f2908",
+        "partitions": [
+          {
+            "name": "Y-akseli-bbe33222-14e9-4fb4-8497-841226040a4f",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "{",
+                "    (\"Yhteensä\", NAMEOF('__Measures'[All_counts]), 0, \"Arvot\"),",
+                "    (\"Jalankulku\", NAMEOF('__Measures'[Jalankulku]), 1, \"Arvot\"),",
+                "    (\"Pyöräily\", NAMEOF('__Measures'[Pyöräily]), 2, \"Arvot\"),",
+                "    (\"Keskustaan\", NAMEOF('__Measures'[Keskustaan]), 3, \"Arvot\"),",
+                "    (\"Keskustasta\", NAMEOF('__Measures'[Keskustasta]), 4, \"Arvot\"),",
+                "    (\"Yhteensä LY\", NAMEOF('__Measures'[all_counts LY]), 5, \"Vertailut\"),",
+                "    (\"Jalankulku LY\", NAMEOF('__Measures'[Walkers_LY]), 6, \"Vertailut\"),",
+                "    (\"Pyöräily LY\", NAMEOF('__Measures'[Bikes_LY]), 7, \"Vertailut\"),",
+                "    (\"Keskustaan LY\", NAMEOF('__Measures'[Keskustaan LY]), 8, \"Vertailut\"),",
+                "    (\"Keskustasta LY\", NAMEOF('__Measures'[Keskustasta LY]), 9, \"Vertailut\")",
+                "}"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "__Measures",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "a5ebff6d65614db5b708833fd7bd1609"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Column",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "73f9f4f9-55a2-470d-b615-84641b2be920",
+            "sourceColumn": "[Column]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "ff2a22d6-deac-45a6-81cd-7c4801d94790",
+        "measures": [
+          {
+            "name": "All_counts",
+            "expression": [
+              "",
+              "     SUM(channelData[counts])"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "6b770b96-bb91-4de3-b36b-e08fb2aa205d"
+          },
+          {
+            "name": "Latest_data",
+            "expression": [
+              "",
+              "VAR last = LASTNONBLANK(channelData[date],channelData[date])",
+              "VAR ltime = CALCULATE(MAX(channelData[time]), channelData[date] = last)",
+              "",
+              "RETURN",
+              " last & \" \" &  FORMAT(ltime, \"HH:mm\")"
+            ],
+            "lineageTag": "e5d3993b-fc31-4a7e-878d-7913119411bd"
+          },
+          {
+            "name": "Selected locations",
+            "expression": "IF ( ISFILTERED ( siteChannels[longitude] ), CONCATENATEX(VALUES(siteChannels[siteName]), siteChannels[siteName], \", \"), \"Kaikki mittauspaikat\")",
+            "lineageTag": "842940e0-cfc6-4e50-90d4-fa9d136d9218"
+          },
+          {
+            "name": "Selected time period",
+            "expression": [
+              "",
+              "VAR period = SELECTEDVALUE(timePeriods[timePeriod])",
+              "",
+              "RETURN",
+              "SWITCH(",
+              "    period,",
+              "     \"Eilen\", CALCULATE([All_counts], 'Calendar'[CurrentDayOffset] = -1),",
+              "     \"Tänään\", CALCULATE([All_counts],  'Calendar'[CurrentDayOffset] = 0 ),",
+              "     \"Tämä viikko\", CALCULATE([All_counts], 'Calendar'[CurWeekOffset] = 0),",
+              "     \"Tämä kuukausi\", CALCULATE([All_counts], 'Calendar'[CurMonthOffset] = 0),",
+              "    \"Tämä vuosi\",  CALCULATE([All_counts], 'Calendar'[CurYearOffset] = 0),",
+              "    ",
+              "    ",
+              "    ",
+              "    \"-\")"
+            ],
+            "formatString": "0",
+            "lineageTag": "18063ff5-b8a7-4644-9853-6cb8a0ef1225"
+          },
+          {
+            "name": "data_from",
+            "expression": "MIN(channelData[date])",
+            "formatString": "Short Date",
+            "lineageTag": "00b91122-ba5b-4650-9327-b5194b1ca1f2"
+          },
+          {
+            "name": "max date",
+            "expression": "max('Calendar'[Date])",
+            "formatString": "General Date",
+            "lineageTag": "9c72eb3d-4cc2-4073-a125-2d5bb787a81a"
+          },
+          {
+            "name": "min date",
+            "expression": "MIN('Calendar'[Date])",
+            "formatString": "General Date",
+            "lineageTag": "78f89552-7566-4f1f-9944-ed77c82b546f"
+          },
+          {
+            "name": "walkers %",
+            "expression": [
+              "",
+              "var walkers_only = CALCULATE([Selected time period], siteChannels[userType] = 1)",
+              "RETURN",
+              "DIVIDE(walkers_only, [Selected time period], 0)"
+            ],
+            "formatString": "0.00\\ %;-0.00\\ %;0.00\\ %",
+            "lineageTag": "435ca5d8-a460-4c24-886e-c0538bc569ad"
+          },
+          {
+            "name": "JK_KESKUSTAAN_value",
+            "expression": [
+              "",
+              "VAR arvo = CALCULATE([Selected time period], siteChannels[userType] = 1)",
+              "VAR jk = IF( ISBLANK(arvo), \"-\", arvo)",
+              "VAR kesk = CALCULATE([Selected time period], siteChannels[direction_label] = \"IN\")",
+              "VAR val = SELECTEDVALUE(Legend[Legend Order])",
+              "",
+              "RETURN",
+              "SWITCH(",
+              "    val,",
+              "    0, jk,",
+              "    1, kesk",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "2bb999ae-517a-456b-a1fc-8fd2c68334ca"
+          },
+          {
+            "name": "info",
+            "expression": "IF(SELECTEDVALUE(siteChannels[hasWalkers]) = 1, \"Vain pyöräily\", \"Jalankulku ja pyöräily\")",
+            "lineageTag": "51c7ed80-d654-47c1-be9c-32a5fbe1983d"
+          },
+          {
+            "name": "Selected time period LY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "CALCULATE([Selected time period], DATEADD('Calendar'[Date], -1, YEAR))",
+            "lineageTag": "91ccb84d-c790-4f2f-96c1-23e1510de541"
+          },
+          {
+            "name": "JK_KESKUSTAAN",
+            "expression": [
+              "",
+              "VAR selected = SELECTEDVALUE(Legend[Legend Order])",
+              "RETURN",
+              "SWITCH(",
+              "    selected,",
+              "    0, \"Jalankulkijat\",",
+              "    1, \"Keskustaan\",",
+              "    \"Error\"",
+              ")",
+              ""
+            ],
+            "lineageTag": "3d5d9c74-e679-49cf-990d-703c985eb5ae"
+          },
+          {
+            "name": "PP_KESKUSTASTA",
+            "expression": [
+              "",
+              "VAR selected = SELECTEDVALUE(Legend[Legend Order])",
+              "RETURN",
+              "SWITCH(",
+              "    selected,",
+              "    0, \"Pyöräilijät\",",
+              "    1, \"Keskustasta\",",
+              "    \"Error\"",
+              ")"
+            ],
+            "lineageTag": "9087168e-9a8a-486f-aef1-0ce6fe3edbe4"
+          },
+          {
+            "name": "Jalankulku",
+            "displayFolder": "Erittelyt",
+            "expression": "CALCULATE([All_counts], siteChannels[userType] = 1)",
+            "formatString": "0",
+            "lineageTag": "ec56ecc2-9680-414e-ae10-ec43b46d043a"
+          },
+          {
+            "name": "Pyöräily",
+            "displayFolder": "Erittelyt",
+            "expression": "CALCULATE([All_counts], siteChannels[userType] = 2)",
+            "formatString": "0",
+            "lineageTag": "bde961cf-ed08-468e-ab8a-ce7281fbf31b"
+          },
+          {
+            "name": "Keskustaan",
+            "displayFolder": "Erittelyt",
+            "expression": "CALCULATE([All_counts], siteChannels[direction_label] = \"IN\")",
+            "formatString": "0",
+            "lineageTag": "f8f0006e-e1d6-4c5e-a857-ffeb3cf3e28d"
+          },
+          {
+            "name": "Keskustasta",
+            "displayFolder": "Erittelyt",
+            "expression": "CALCULATE([All_counts], siteChannels[direction_label] = \"OUT\")",
+            "formatString": "0",
+            "lineageTag": "6cefd4c5-20e1-4e09-acbf-c5705f40a307"
+          },
+          {
+            "name": "Walkers_LY",
+            "expression": [
+              "",
+              "CALCULATE (",
+              "    [Jalankulku],",
+              "    CALCULATETABLE (",
+              "        DATEADD('Calendar'[Date], -1, YEAR),",
+              "        'Calendar'[FutureDate] = \"Past\"",
+              "    )",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "89df7802-88ef-4694-8c37-3d7db0a6e0ed"
+          },
+          {
+            "name": "Bikes_LY",
+            "expression": "CALCULATE([Pyöräily], DATEADD('Calendar'[Date], -1, YEAR))",
+            "formatString": "0",
+            "lineageTag": "1cf34415-6291-4353-aa3d-6d54a27f4f9d"
+          },
+          {
+            "name": "JK_KESKUSTASTA_value",
+            "expression": [
+              "",
+              "VAR jk = IF(ISBLANK([Selected time period]), \"-\", CALCULATE([Selected time period], siteChannels[userType] = 2))",
+              "VAR kesk = CALCULATE([Selected time period], siteChannels[direction_label] = \"OUT\")",
+              "VAR val = SELECTEDVALUE(Legend[Legend Order])",
+              "",
+              "RETURN",
+              "SWITCH(",
+              "    val,",
+              "    0, jk,",
+              "    1, kesk",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "aaa04784-11f9-4fa4-908c-76d9dd556389"
+          },
+          {
+            "name": "Keskustasta LY",
+            "expression": "CALCULATE([Keskustasta], DATEADD('Calendar'[Date], -1, YEAR) )",
+            "formatString": "0",
+            "lineageTag": "49ba1720-0c83-426e-8b5c-863ce5e33f75"
+          },
+          {
+            "name": "Keskustaan LY",
+            "expression": "CALCULATE([Keskustaan], DATEADD('Calendar'[Date], -1, YEAR) )",
+            "formatString": "0",
+            "lineageTag": "ad2ef7cf-d4a4-4d47-8cd4-213c63834bf5"
+          },
+          {
+            "name": "all_counts LY",
+            "expression": "CALCULATE([All_counts], DATEADD('Calendar'[Date], -1, YEAR) )",
+            "formatString": "0",
+            "lineageTag": "888147f1-3a3d-48ec-810a-04037e1b73b1"
+          },
+          {
+            "name": "Jalankulku YoY",
+            "expression": [
+              "",
+              "IF(NOT ISBLANK([Jalankulku]),",
+              "DIVIDE([Jalankulku] - [Walkers_LY],[Walkers_LY], 0),",
+              "\"-\")"
+            ],
+            "formatString": "0.00\\ %;-0.00\\ %;0.00\\ %",
+            "lineageTag": "dfd09487-3226-4aab-b186-03436a4550a7"
+          },
+          {
+            "name": "Pyöräily YoY",
+            "expression": [
+              "",
+              "IF(",
+              "    NOT ISBLANK([Pyöräily]),",
+              "    DIVIDE([Pyöräily] - [Bikes_LY],[Bikes_LY], 0), ",
+              "    \"-\"",
+              ")"
+            ],
+            "formatString": "0.00\\ %;-0.00\\ %;0.00\\ %",
+            "lineageTag": "ace74ba7-f16b-41d2-8217-d531a685c331"
+          },
+          {
+            "name": "Yhteensä YoY",
+            "expression": "DIVIDE([All_counts] - [all_counts LY],[all_counts LY], 0)",
+            "formatString": "0.00\\ %;-0.00\\ %;0.00\\ %",
+            "lineageTag": "b1caa90a-fa8b-4757-9dca-ff0c8c27f1c4"
+          },
+          {
+            "name": "Pyäräily YoY arrow",
+            "expression": "IF([Pyöräily YoY] < -0.025,  UNICHAR(129107), IF([Pyöräily YoY] >= -0.025 && [Pyöräily YoY] <= 0.025,  UNICHAR(8596), UNICHAR(129105 )))",
+            "lineageTag": "d754576c-3392-4968-8a72-a4480754b6c6"
+          },
+          {
+            "name": "Jalankulku YoY arrow",
+            "expression": [
+              "",
+              "IF (NOT ISBLANK([Jalankulku]),",
+              "",
+              "IF([Jalankulku YoY] < -0.025,  UNICHAR(129107),",
+              " IF([Jalankulku YoY] >= -0.025 && [Jalankulku YoY] <= 0.025, UNICHAR(8596),",
+              "  IF( [Jalankulku YoY] > 0.025, UNICHAR(129105 ) ))),  UNICHAR(8596))"
+            ],
+            "lineageTag": "411208e0-9366-4061-9dde-f4181c237c08"
+          },
+          {
+            "name": "Yhteensä YoY arrow",
+            "expression": "IF([Yhteensä YoY] < -0.025,  UNICHAR(129107), IF([Yhteensä YoY] >= -0.025 && [Yhteensä YoY] <= 0.025,  UNICHAR(8596), UNICHAR(129105 )))",
+            "lineageTag": "fe7232af-ddfc-4299-afac-9e1a7c0b054c"
+          },
+          {
+            "name": "Blank",
+            "expression": "\" \"",
+            "lineageTag": "d17fb086-6b7c-415a-82fc-a3a8bc0cd8e3"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "__Measures-3feb1314-9579-4742-bc19-232ceaa8af45",
+            "mode": "import",
+            "source": {
+              "expression": "Row(\"Column\", BLANK())",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "channelData",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "channelId",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "32f9b385-f4e3-4036-bb9d-9069d793870c",
+            "sourceColumn": "channelId",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "counts",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "int64",
+            "lineageTag": "bf42c9e1-0598-4ead-af7d-2b8d70957fed",
+            "sourceColumn": "counts",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "f8bdbe60-485c-411b-8108-875241708ca3",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Time"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Time",
+            "lineageTag": "34b046eb-e32b-4788-b7f0-56f047a0347f",
+            "sourceColumn": "time",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "939d0391-77b0-4127-aa8e-d0f275c61825",
+        "partitions": [
+          {
+            "name": "channelData-6ecb4787-1293-4c77-bb24-43ef3b451af4",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"D:\\channelData.parquet\"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),",
+                "    #\"Duplicated Column\" = Table.DuplicateColumn(Source, \"date\", \"date - Copy\"),",
+                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Duplicated Column\",{\"date\", \"date - Copy\", \"counts\", \"channelId\"}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Reordered Columns\",{{\"date - Copy\", \"time\"}}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"date\", type date}, {\"time\", type time}, {\"counts\", Int64.Type}}),",
+                "    #\"Sorted Rows\" = Table.Sort(#\"Changed Type\",{{\"counts\", Order.Descending}}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Sorted Rows\", each [counts] < 70000)",
+                "in",
+                "    #\"Filtered Rows\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "siteChannels",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "direction",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "27468a52-606c-4d1a-941b-7cf87676dbe3",
+            "sourceColumn": "direction",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "direction_label",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e7f5e4ef-2d13-4bd5-9177-c25a954073c5",
+            "sourceColumn": "direction_label",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "domain",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c5d12316-f8ba-4d44-b00d-97a73162f759",
+            "sourceColumn": "domain",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "hasWalkers",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "CALCULATE(DISTINCTCOUNT(siteChannels[userType_label]), ALLEXCEPT(siteChannels, siteChannels[siteName]))",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "4339e3a5-b9d1-4af4-ba43-b268ca95b654",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6672d55f-4684-4699-8a27-403e23d4db60",
+            "sourceColumn": "id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "latitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataCategory": "Latitude",
+            "dataType": "double",
+            "lineageTag": "72a9e816-3491-4366-b74b-0cb8de7d1124",
+            "sourceColumn": "latitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "longitude",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataCategory": "Longitude",
+            "dataType": "double",
+            "lineageTag": "d9da43f7-2539-4379-89ac-58000b0f0c76",
+            "sourceColumn": "longitude",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2a3fb7c3-e55e-48f2-b264-da02c9ed15e4",
+            "sourceColumn": "name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "siteId",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "550da672-7f30-4f61-b073-5ed6b3fcd730",
+            "sourceColumn": "siteId",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "siteName",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6262489a-2242-4e24-b956-75918b6789c6",
+            "sourceColumn": "siteName",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "userType",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "dee585a9-460a-449c-9090-099a7f022982",
+            "sourceColumn": "userType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "userType_label",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e05f1945-3ee5-46bd-970a-47a966c4140b",
+            "sourceColumn": "userType_label",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "c6fd6c18-ce6b-4e1c-891e-78952b1cd3f1",
+        "partitions": [
+          {
+            "name": "siteChannels-91b561d9-9ac4-4045-94e4-afad2a6c1e49",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Parquet.Document(File.Contents(\"D:\\siteChannels.parquet\"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),",
+                "    #\"Added Conditional Column\" = Table.AddColumn(Source, \"userType_label\", each if [userType] = 1 then \"Jalankulku\" else \"Pyöräily\"),",
+                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Added Conditional Column\",{\"id\", \"siteId\", \"siteName\", \"name\", \"domain\", \"latitude\", \"longitude\", \"userType\", \"userType_label\", \"direction\"}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Reordered Columns\", each true),",
+                "    #\"Added Conditional Column1\" = Table.AddColumn(#\"Filtered Rows\", \"direction_label\", each if [direction] = 1 then \"IN\" else if [direction] = 6 then \"IN\" else if [direction] = 7 then \"IN\" else \"OUT\"),",
+                "    #\"Filtered Rows1\" = Table.SelectRows(#\"Added Conditional Column1\", each ([siteName] <> \"Haukipudas/Kiiminkijoki (mt 847)\" and [siteName] <> \"Kiiminki (vt 20/ mt 848)\" and [siteName] <> \"Koiteli\" and [siteName] <> \"Limingantulli (Limingantie/Kempeleentie)\" and [siteName] <> \"Liminka/Ouluntie (mt847)\" and [siteName] <> \"Oulunlahti (Limingantie)\" and [siteName] <> \"Äimärautio (Limingantie)\"))",
+                "in",
+                "    #\"Filtered Rows1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "timePeriods",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "order",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "97e48062-7051-4221-aa3d-838819aec545",
+            "sourceColumn": "order",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "timePeriod",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9f4424f1-f7bc-4cb0-b97a-a5a0dead0d4d",
+            "sortByColumn": "order",
+            "sourceColumn": "timePeriod",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "11ac0243-79cc-4a30-adf4-068fadf9631e",
+        "partitions": [
+          {
+            "name": "timePeriods-baf2092d-e388-4344-aef1-137c1d971dea",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i45Wcs3MSc1T0lEyVIrViVYKObwk7/ASIAEUMYKJ5B5eolCWmZmdnQ8UNUYWzS4tzU4sLc4EipugqC7NBwuaggX9cxMVEjOzE8sOL8kBiZopxcYCAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [timePeriod = _t, order = _t]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"timePeriod\", type text}, {\"order\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
