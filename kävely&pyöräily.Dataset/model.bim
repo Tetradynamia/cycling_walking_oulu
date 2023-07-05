@@ -1463,11 +1463,16 @@
                 "    (\"Pyöräily\", NAMEOF('__Measures'[Pyöräily]), 2, \"Arvot\"),",
                 "    (\"Keskustaan\", NAMEOF('__Measures'[Keskustaan]), 3, \"Arvot\"),",
                 "    (\"Keskustasta\", NAMEOF('__Measures'[Keskustasta]), 4, \"Arvot\"),",
-                "    (\"Yhteensä LY\", NAMEOF('__Measures'[all_counts LY]), 5, \"Vertailut\"),",
-                "    (\"Jalankulku LY\", NAMEOF('__Measures'[Walkers_LY]), 6, \"Vertailut\"),",
-                "    (\"Pyöräily LY\", NAMEOF('__Measures'[Bikes_LY]), 7, \"Vertailut\"),",
-                "    (\"Keskustaan LY\", NAMEOF('__Measures'[Keskustaan LY]), 8, \"Vertailut\"),",
-                "    (\"Keskustasta LY\", NAMEOF('__Measures'[Keskustasta LY]), 9, \"Vertailut\")",
+                "    (\"Yhteensä (vertailu)\", NAMEOF('__Measures'[all_counts LY]), 5, \"Edellinen vuosi\"),",
+                "    (\"Jalankulku (vertailu)\", NAMEOF('__Measures'[Walkers_LY]), 6, \"Edellinen vuosi\"),",
+                "    (\"Pyöräily (vertailu)\", NAMEOF('__Measures'[Bikes_LY]), 7, \"Edellinen vuosi\"),",
+                "    (\"Keskustaan (vertailu)\", NAMEOF('__Measures'[Keskustaan LY]), 8, \"Edellinen vuosi\"),",
+                "    (\"Keskustasta (vertailu)\", NAMEOF('__Measures'[Keskustasta LY]), 9, \"Edellinen vuosi\"),",
+                "    (\"Yhteensä (varianssi)\", NAMEOF('__Measures'[Yhteensä VAR]), 10, \"Varianssi\"),",
+                "    (\"Jalankulku  (varianssi)\", NAMEOF('__Measures'[Jalankulkijat VAR]), 11, \"Varianssi\"),",
+                "    (\"Pyöräily (varianssi)\", NAMEOF('__Measures'[Pyöräily VAR]), 12, \"Varianssi\"),",
+                "    (\"Keskustaan (varianssi)\", NAMEOF('__Measures'[Keskustasta VAR]), 13, \"Varianssi\"),",
+                "    (\"Keskustasta (varianssi)\", NAMEOF('__Measures'[Keskustasta VAR]), 14, \"Varianssi\")",
                 "}"
               ],
               "type": "calculated"
@@ -1651,28 +1656,28 @@
             "name": "Jalankulku",
             "displayFolder": "Erittelyt",
             "expression": "CALCULATE([All_counts], siteChannels[userType] = 1)",
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "ec56ecc2-9680-414e-ae10-ec43b46d043a"
           },
           {
             "name": "Pyöräily",
             "displayFolder": "Erittelyt",
             "expression": "CALCULATE([All_counts], siteChannels[userType] = 2)",
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "bde961cf-ed08-468e-ab8a-ce7281fbf31b"
           },
           {
             "name": "Keskustaan",
             "displayFolder": "Erittelyt",
             "expression": "CALCULATE([All_counts], siteChannels[direction_label] = \"IN\")",
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "f8f0006e-e1d6-4c5e-a857-ffeb3cf3e28d"
           },
           {
             "name": "Keskustasta",
             "displayFolder": "Erittelyt",
             "expression": "CALCULATE([All_counts], siteChannels[direction_label] = \"OUT\")",
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "6cefd4c5-20e1-4e09-acbf-c5705f40a307"
           },
           {
@@ -1687,27 +1692,28 @@
               "    )",
               ")"
             ],
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "89df7802-88ef-4694-8c37-3d7db0a6e0ed"
           },
           {
             "name": "Bikes_LY",
             "expression": "CALCULATE([Pyöräily], DATEADD('Calendar'[Date], -1, YEAR))",
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "1cf34415-6291-4353-aa3d-6d54a27f4f9d"
           },
           {
-            "name": "JK_KESKUSTASTA_value",
+            "name": "PP_KESKUSTASTA_value",
             "expression": [
               "",
-              "VAR jk = IF(ISBLANK([Selected time period]), \"-\", CALCULATE([Selected time period], siteChannels[userType] = 2))",
+              "VAR arvo = CALCULATE([Selected time period], siteChannels[userType] = 2)",
+              "VAR pp = IF(ISBLANK(arvo), \"-\", arvo)",
               "VAR kesk = CALCULATE([Selected time period], siteChannels[direction_label] = \"OUT\")",
               "VAR val = SELECTEDVALUE(Legend[Legend Order])",
               "",
               "RETURN",
               "SWITCH(",
               "    val,",
-              "    0, jk,",
+              "    0, pp,",
               "    1, kesk",
               ")"
             ],
@@ -1717,19 +1723,19 @@
           {
             "name": "Keskustasta LY",
             "expression": "CALCULATE([Keskustasta], DATEADD('Calendar'[Date], -1, YEAR) )",
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "49ba1720-0c83-426e-8b5c-863ce5e33f75"
           },
           {
             "name": "Keskustaan LY",
             "expression": "CALCULATE([Keskustaan], DATEADD('Calendar'[Date], -1, YEAR) )",
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "ad2ef7cf-d4a4-4d47-8cd4-213c63834bf5"
           },
           {
             "name": "all_counts LY",
             "expression": "CALCULATE([All_counts], DATEADD('Calendar'[Date], -1, YEAR) )",
-            "formatString": "0",
+            "formatString": "#,0",
             "lineageTag": "888147f1-3a3d-48ec-810a-04037e1b73b1"
           },
           {
@@ -1788,6 +1794,41 @@
             "name": "Blank",
             "expression": "\" \"",
             "lineageTag": "d17fb086-6b7c-415a-82fc-a3a8bc0cd8e3"
+          },
+          {
+            "name": "Yhteensä VAR",
+            "displayFolder": "varianssit",
+            "expression": "[All_counts] - [all_counts LY]",
+            "formatString": "#,0",
+            "lineageTag": "d85405ca-8a7d-4fa7-9260-59b825a76b36"
+          },
+          {
+            "name": "Jalankulkijat VAR",
+            "displayFolder": "varianssit",
+            "expression": "[Jalankulku] - [Walkers_LY]",
+            "formatString": "#,0",
+            "lineageTag": "a6cdf70a-34e0-472b-85b6-522bd94ffc1a"
+          },
+          {
+            "name": "Pyöräily VAR",
+            "displayFolder": "varianssit",
+            "expression": "[Pyöräily] - [Bikes_LY]",
+            "formatString": "#,0",
+            "lineageTag": "5dec3166-2e0f-4df5-8e41-ab24eb4e9458"
+          },
+          {
+            "name": "Keskustaan VAR",
+            "displayFolder": "varianssit",
+            "expression": "[Keskustaan] - [Keskustaan LY]",
+            "formatString": "#,0",
+            "lineageTag": "13a82cca-a651-47eb-8fba-18392944e8a0"
+          },
+          {
+            "name": "Keskustasta VAR",
+            "displayFolder": "varianssit",
+            "expression": "[Keskustasta] - [Keskustasta LY]",
+            "formatString": "#,0",
+            "lineageTag": "60584433-906b-4349-b01d-acfc76bdbe31"
           }
         ],
         "partitions": [

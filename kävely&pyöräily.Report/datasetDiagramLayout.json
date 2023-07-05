@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 386.09999999999991,
+        "x": 0,
         "y": 0
       },
       "nodes": [
@@ -100,8 +100,8 @@
         },
         {
           "location": {
-            "x": 1521.6,
-            "y": 0
+            "x": 1142.6,
+            "y": 376
           },
           "nodeIndex": "Y-akseli",
           "nodeLineageTag": "7cc80af1-aa3e-40b3-89b8-da0fde3f2908",
