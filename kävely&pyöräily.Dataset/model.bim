@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"siteChannels\",\"channelData\",\"timePeriods\",\"Calendar\",\"Time\"]"
+        "value": "[\"timePeriods\",\"Calendar\",\"Time\",\"pbi ChannelData\",\"pbi siteChannels\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -12,7 +12,7 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.118.828.0 (23.06)"
+        "value": "2.119.701.0 (23.07)"
       },
       {
         "name": "PBI_ProTooling",
@@ -40,25 +40,25 @@
     "defaultPowerBIDataSourceVersion": "powerBI_V3",
     "relationships": [
       {
-        "name": "8cfe1830-2372-4010-9eb6-60d90ffc82d0",
-        "fromColumn": "channelId",
-        "fromTable": "channelData",
-        "toColumn": "siteId",
-        "toTable": "siteChannels"
+        "name": "74a6a695-600a-4bce-ae9b-28733e7d72df",
+        "fromColumn": "Time",
+        "fromTable": "pbi ChannelData",
+        "toColumn": "Time",
+        "toTable": "Time"
       },
       {
-        "name": "a1f81ec6-3427-4906-a34b-32a6ab978f08",
-        "fromColumn": "date",
-        "fromTable": "channelData",
+        "name": "3d656e0b-4732-458a-a81e-2aa08aecc6a1",
+        "fromColumn": "Date",
+        "fromTable": "pbi ChannelData",
         "toColumn": "Date",
         "toTable": "Calendar"
       },
       {
-        "name": "34e0dc82-0254-453c-8101-7e948b434201",
-        "fromColumn": "time",
-        "fromTable": "channelData",
-        "toColumn": "Time",
-        "toTable": "Time"
+        "name": "9ae0ee1b-7b36-4255-a15a-75cc3c03485e",
+        "fromColumn": "ChannelID",
+        "fromTable": "pbi ChannelData",
+        "toColumn": "siteId",
+        "toTable": "pbi siteChannels"
       }
     ],
     "sourceQueryCulture": "fi-FI",
@@ -720,7 +720,6 @@
             ],
             "dataCategory": "PaddedDateTableDates",
             "dataType": "dateTime",
-            "formatString": "General Date",
             "isDataTypeInferred": true,
             "isHidden": true,
             "isNameInferred": true,
@@ -744,7 +743,6 @@
             "dataCategory": "DayOfMonth",
             "dataType": "int64",
             "expression": "DAY([Date])",
-            "formatString": "0",
             "isDataTypeInferred": true,
             "isHidden": true,
             "lineageTag": "157c93fa-8efa-41fc-845f-fd8d9e0da868",
@@ -788,7 +786,6 @@
             "dataCategory": "MonthOfYear",
             "dataType": "int64",
             "expression": "MONTH([Date])",
-            "formatString": "0",
             "isDataTypeInferred": true,
             "isHidden": true,
             "lineageTag": "c613eb8b-1f37-40e6-8a48-2f19c5ee987b",
@@ -832,7 +829,6 @@
             "dataCategory": "QuarterOfYear",
             "dataType": "int64",
             "expression": "INT(([MonthNo] + 2) / 3)",
-            "formatString": "0",
             "isDataTypeInferred": true,
             "isHidden": true,
             "lineageTag": "b84ccc47-5101-4b7d-bbd8-96f19799c5a2",
@@ -854,7 +850,6 @@
             "dataCategory": "Years",
             "dataType": "int64",
             "expression": "YEAR([Date])",
-            "formatString": "0",
             "isDataTypeInferred": true,
             "isHidden": true,
             "lineageTag": "83ef822e-992e-4982-8c83-88ebc2006a6f",
@@ -1002,8 +997,8 @@
             "source": {
               "expression": [
                 "{",
-                "    (\"Suunta\", NAMEOF('siteChannels'[direction_label]), 1),",
-                "    (\"Tyyppi\", NAMEOF('siteChannels'[userType_label]), 0)",
+                "    (\"Suunta\", NAMEOF('pbi siteChannels'[direction_label]), 1),",
+                "    (\"Tyyppi\", NAMEOF('pbi siteChannels'[userType_label]), 0)",
                 "}"
               ],
               "type": "calculated"
@@ -1513,7 +1508,7 @@
             "name": "All_counts",
             "expression": [
               "",
-              "     SUM(channelData[counts])"
+              "     SUM('pbi ChannelData'[Count])"
             ],
             "formatString": "#,0",
             "lineageTag": "6b770b96-bb91-4de3-b36b-e08fb2aa205d"
@@ -1522,17 +1517,17 @@
             "name": "Latest_data",
             "expression": [
               "",
-              "VAR last = LASTNONBLANK(channelData[date],channelData[date])",
-              "VAR ltime = CALCULATE(MAX(channelData[time]), channelData[date] = last)",
+              "VAR last = LASTNONBLANK('pbi ChannelData'[Date],'pbi ChannelData'[Date])",
+              "VAR ltime = CALCULATE(MAX('pbi ChannelData'[Time]), 'pbi ChannelData'[Date] = last)",
               "",
               "RETURN",
-              " last & \" \" &  FORMAT(ltime, \"HH:mm\")"
+              " FORMAT(last, \"dd.mm.yyyy\") & \" \" &  FORMAT(ltime, \"HH:mm\")"
             ],
             "lineageTag": "e5d3993b-fc31-4a7e-878d-7913119411bd"
           },
           {
             "name": "Selected locations",
-            "expression": "IF ( ISFILTERED ( siteChannels[longitude] ), CONCATENATEX(VALUES(siteChannels[siteName]), siteChannels[siteName], \", \"), \"Kaikki mittauspaikat\")",
+            "expression": "IF ( ISFILTERED ( 'pbi siteChannels'[longitude] ), CONCATENATEX(VALUES('pbi siteChannels'[siteName]), 'pbi siteChannels'[siteName], \", \"), \"Kaikki mittauspaikat\")",
             "lineageTag": "842940e0-cfc6-4e50-90d4-fa9d136d9218"
           },
           {
@@ -1559,7 +1554,7 @@
           },
           {
             "name": "data_from",
-            "expression": "MIN(channelData[date])",
+            "expression": "MIN('pbi ChannelData'[Date])",
             "formatString": "Short Date",
             "lineageTag": "00b91122-ba5b-4650-9327-b5194b1ca1f2"
           },
@@ -1579,7 +1574,7 @@
             "name": "walkers %",
             "expression": [
               "",
-              "var walkers_only = CALCULATE([Selected time period], siteChannels[userType] = 1)",
+              "var walkers_only = CALCULATE([Selected time period], 'pbi siteChannels'[hasWalkers] = 0)",
               "RETURN",
               "DIVIDE(walkers_only, [Selected time period], 0)"
             ],
@@ -1590,9 +1585,9 @@
             "name": "JK_KESKUSTAAN_value",
             "expression": [
               "",
-              "VAR arvo = CALCULATE([Selected time period], siteChannels[userType] = 1)",
+              "VAR arvo = CALCULATE([Selected time period], 'pbi siteChannels'[userType_label] = \"Jalankulku\")",
               "VAR jk = IF( ISBLANK(arvo), \"-\", arvo)",
-              "VAR kesk = CALCULATE([Selected time period], siteChannels[direction_label] = \"IN\")",
+              "VAR kesk = CALCULATE([Selected time period], 'pbi siteChannels'[direction_label] = \"Keskustaan\")",
               "VAR val = SELECTEDVALUE(Legend[Legend Order])",
               "",
               "RETURN",
@@ -1607,7 +1602,7 @@
           },
           {
             "name": "info",
-            "expression": "IF(SELECTEDVALUE(siteChannels[hasWalkers]) = 1, \"Vain pyöräily\", \"Jalankulku ja pyöräily\")",
+            "expression": "IF(SELECTEDVALUE('pbi siteChannels'[hasWalkers]) = 0, \"Vain pyöräily\", \"Jalankulku ja pyöräily\")",
             "lineageTag": "51c7ed80-d654-47c1-be9c-32a5fbe1983d"
           },
           {
@@ -1655,28 +1650,28 @@
           {
             "name": "Jalankulku",
             "displayFolder": "Erittelyt",
-            "expression": "CALCULATE([All_counts], siteChannels[userType] = 1)",
+            "expression": "CALCULATE([All_counts], 'pbi siteChannels'[userType_label] = \"Jalankulku\")",
             "formatString": "#,0",
             "lineageTag": "ec56ecc2-9680-414e-ae10-ec43b46d043a"
           },
           {
             "name": "Pyöräily",
             "displayFolder": "Erittelyt",
-            "expression": "CALCULATE([All_counts], siteChannels[userType] = 2)",
+            "expression": "CALCULATE([All_counts], 'pbi siteChannels'[userType_label] = \"Pyöräily\")",
             "formatString": "#,0",
             "lineageTag": "bde961cf-ed08-468e-ab8a-ce7281fbf31b"
           },
           {
             "name": "Keskustaan",
             "displayFolder": "Erittelyt",
-            "expression": "CALCULATE([All_counts], siteChannels[direction_label] = \"IN\")",
+            "expression": "CALCULATE([All_counts], 'pbi siteChannels'[direction_label] = \"Keskustaan\")",
             "formatString": "#,0",
             "lineageTag": "f8f0006e-e1d6-4c5e-a857-ffeb3cf3e28d"
           },
           {
             "name": "Keskustasta",
             "displayFolder": "Erittelyt",
-            "expression": "CALCULATE([All_counts], siteChannels[direction_label] = \"OUT\")",
+            "expression": "CALCULATE([All_counts], 'pbi siteChannels'[direction_label] = \"Keskustasta\")",
             "formatString": "#,0",
             "lineageTag": "6cefd4c5-20e1-4e09-acbf-c5705f40a307"
           },
@@ -1684,15 +1679,10 @@
             "name": "Walkers_LY",
             "expression": [
               "",
-              "CALCULATE (",
-              "    [Jalankulku],",
-              "    CALCULATETABLE (",
-              "        DATEADD('Calendar'[Date], -1, YEAR),",
-              "        'Calendar'[FutureDate] = \"Past\"",
-              "    )",
-              ")"
+              "CALCULATE([Jalankulku], DATEADD('Calendar'[Date], -1, YEAR))",
+              ""
             ],
-            "formatString": "#,0",
+            "formatString": "0",
             "lineageTag": "89df7802-88ef-4694-8c37-3d7db0a6e0ed"
           },
           {
@@ -1705,9 +1695,9 @@
             "name": "PP_KESKUSTASTA_value",
             "expression": [
               "",
-              "VAR arvo = CALCULATE([Selected time period], siteChannels[userType] = 2)",
-              "VAR pp = IF(ISBLANK(arvo), \"-\", arvo)",
-              "VAR kesk = CALCULATE([Selected time period], siteChannels[direction_label] = \"OUT\")",
+              "VAR arvo = CALCULATE([Selected time period], 'pbi siteChannels'[userType_label] = \"Pyöräily\")",
+              "VAR pp = IF( ISBLANK(arvo), \"-\", arvo)",
+              "VAR kesk = CALCULATE([Selected time period], 'pbi siteChannels'[direction_label] = \"Keskustasta\")",
               "VAR val = SELECTEDVALUE(Legend[Legend Order])",
               "",
               "RETURN",
@@ -1843,8 +1833,12 @@
         ]
       },
       {
-        "name": "channelData",
+        "name": "pbi ChannelData",
         "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
           {
             "name": "PBI_ResultType",
             "value": "Table"
@@ -1852,7 +1846,7 @@
         ],
         "columns": [
           {
-            "name": "channelId",
+            "name": "ChannelID",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -1860,29 +1854,26 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "32f9b385-f4e3-4036-bb9d-9069d793870c",
-            "sourceColumn": "channelId",
+            "lineageTag": "4f4f02d9-7ea1-47fb-b68b-5bb1b6ea22d5",
+            "sourceColumn": "ChannelID",
             "summarizeBy": "none"
           },
           {
-            "name": "counts",
+            "name": "Count",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "int64",
-            "lineageTag": "bf42c9e1-0598-4ead-af7d-2b8d70957fed",
-            "sourceColumn": "counts",
+            "formatString": "0",
+            "lineageTag": "041c98ac-3417-4a85-8a4a-563c77b5e1bf",
+            "sourceColumn": "Count",
             "summarizeBy": "sum"
           },
           {
-            "name": "date",
+            "name": "Date",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -1895,12 +1886,12 @@
             ],
             "dataType": "dateTime",
             "formatString": "Long Date",
-            "lineageTag": "f8bdbe60-485c-411b-8108-875241708ca3",
-            "sourceColumn": "date",
+            "lineageTag": "64d1145c-0552-4932-bae8-2f4791e91754",
+            "sourceColumn": "Date",
             "summarizeBy": "none"
           },
           {
-            "name": "time",
+            "name": "Time",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -1912,27 +1903,24 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Short Time",
-            "lineageTag": "34b046eb-e32b-4788-b7f0-56f047a0347f",
-            "sourceColumn": "time",
+            "formatString": "Long Time",
+            "lineageTag": "eb5432b1-be1d-43d9-a568-05fbd887bd61",
+            "sourceColumn": "Time",
             "summarizeBy": "none"
           }
         ],
-        "lineageTag": "939d0391-77b0-4127-aa8e-d0f275c61825",
+        "lineageTag": "0a2a8487-b618-4f46-8aa6-7c7bbee62fcc",
         "partitions": [
           {
-            "name": "channelData-6ecb4787-1293-4c77-bb24-43ef3b451af4",
+            "name": "pbi ChannelData",
             "mode": "import",
             "source": {
               "expression": [
                 "let",
-                "    Source = Parquet.Document(File.Contents(\"D:\\channelData.parquet\"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),",
-                "    #\"Duplicated Column\" = Table.DuplicateColumn(Source, \"date\", \"date - Copy\"),",
-                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Duplicated Column\",{\"date\", \"date - Copy\", \"counts\", \"channelId\"}),",
-                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Reordered Columns\",{{\"date - Copy\", \"time\"}}),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"date\", type date}, {\"time\", type time}, {\"counts\", Int64.Type}}),",
-                "    #\"Sorted Rows\" = Table.Sort(#\"Changed Type\",{{\"counts\", Order.Descending}}),",
-                "    #\"Filtered Rows\" = Table.SelectRows(#\"Sorted Rows\", each [counts] < 70000)",
+                "    Source = Sql.Databases(\"pbi-demo-server.database.windows.net\"),",
+                "    #\"pbi-demo-db\" = Source{[Name=\"pbi-demo-db\"]}[Data],",
+                "    pbi_ChannelData = #\"pbi-demo-db\"{[Schema=\"pbi\",Item=\"ChannelData\"]}[Data],",
+                "    #\"Filtered Rows\" = Table.SelectRows(pbi_ChannelData, each [Count] <= 70000)",
                 "in",
                 "    #\"Filtered Rows\""
               ],
@@ -1942,34 +1930,18 @@
         ]
       },
       {
-        "name": "siteChannels",
+        "name": "pbi siteChannels",
         "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
           {
             "name": "PBI_ResultType",
             "value": "Table"
           }
         ],
         "columns": [
-          {
-            "name": "direction",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "27468a52-606c-4d1a-941b-7cf87676dbe3",
-            "sourceColumn": "direction",
-            "summarizeBy": "none"
-          },
           {
             "name": "direction_label",
             "annotations": [
@@ -1979,7 +1951,7 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "e7f5e4ef-2d13-4bd5-9177-c25a954073c5",
+            "lineageTag": "322db66e-6a7a-44a6-ad3d-c76ed9d1c0d9",
             "sourceColumn": "direction_label",
             "summarizeBy": "none"
           },
@@ -1992,7 +1964,7 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "c5d12316-f8ba-4d44-b00d-97a73162f759",
+            "lineageTag": "1316bead-1c90-4c19-8f99-d660f22628ff",
             "sourceColumn": "domain",
             "summarizeBy": "none"
           },
@@ -2005,12 +1977,10 @@
               }
             ],
             "dataType": "int64",
-            "expression": "CALCULATE(DISTINCTCOUNT(siteChannels[userType_label]), ALLEXCEPT(siteChannels, siteChannels[siteName]))",
             "formatString": "0",
-            "isDataTypeInferred": true,
-            "lineageTag": "4339e3a5-b9d1-4af4-ba43-b268ca95b654",
-            "summarizeBy": "none",
-            "type": "calculated"
+            "lineageTag": "db7016f3-e71c-4342-a4f7-164d20c2a0a5",
+            "sourceColumn": "hasWalkers",
+            "summarizeBy": "none"
           },
           {
             "name": "id",
@@ -2021,7 +1991,7 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "6672d55f-4684-4699-8a27-403e23d4db60",
+            "lineageTag": "e720cacc-421e-452a-a6bb-41b80ee3df12",
             "sourceColumn": "id",
             "summarizeBy": "none"
           },
@@ -2039,7 +2009,7 @@
             ],
             "dataCategory": "Latitude",
             "dataType": "double",
-            "lineageTag": "72a9e816-3491-4366-b74b-0cb8de7d1124",
+            "lineageTag": "6c892df5-88db-4486-a440-60aec90aa84d",
             "sourceColumn": "latitude",
             "summarizeBy": "none"
           },
@@ -2057,7 +2027,7 @@
             ],
             "dataCategory": "Longitude",
             "dataType": "double",
-            "lineageTag": "d9da43f7-2539-4379-89ac-58000b0f0c76",
+            "lineageTag": "3add04d5-d8ba-4160-bb4b-84b4c50175e7",
             "sourceColumn": "longitude",
             "summarizeBy": "none"
           },
@@ -2070,7 +2040,7 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "2a3fb7c3-e55e-48f2-b264-da02c9ed15e4",
+            "lineageTag": "0b70e964-b5aa-4943-b331-e8fbc34b3cb9",
             "sourceColumn": "name",
             "summarizeBy": "none"
           },
@@ -2083,7 +2053,7 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "550da672-7f30-4f61-b073-5ed6b3fcd730",
+            "lineageTag": "1b077c22-a5aa-4014-bfc0-537514168e3d",
             "sourceColumn": "siteId",
             "summarizeBy": "none"
           },
@@ -2096,28 +2066,8 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "6262489a-2242-4e24-b956-75918b6789c6",
+            "lineageTag": "e03d1caa-7440-4e64-bf2d-c967b83f2e98",
             "sourceColumn": "siteName",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "userType",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "dee585a9-460a-449c-9090-099a7f022982",
-            "sourceColumn": "userType",
             "summarizeBy": "none"
           },
           {
@@ -2129,27 +2079,24 @@
               }
             ],
             "dataType": "string",
-            "lineageTag": "e05f1945-3ee5-46bd-970a-47a966c4140b",
+            "lineageTag": "7bfd83d2-2fc0-4bbc-b75b-7fea169cfcb7",
             "sourceColumn": "userType_label",
             "summarizeBy": "none"
           }
         ],
-        "lineageTag": "c6fd6c18-ce6b-4e1c-891e-78952b1cd3f1",
+        "lineageTag": "0ca062af-c1d4-4d11-81b2-73bb65f4efa4",
         "partitions": [
           {
-            "name": "siteChannels-91b561d9-9ac4-4045-94e4-afad2a6c1e49",
+            "name": "pbi siteChannels",
             "mode": "import",
             "source": {
               "expression": [
                 "let",
-                "    Source = Parquet.Document(File.Contents(\"D:\\siteChannels.parquet\"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null]),",
-                "    #\"Added Conditional Column\" = Table.AddColumn(Source, \"userType_label\", each if [userType] = 1 then \"Jalankulku\" else \"Pyöräily\"),",
-                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Added Conditional Column\",{\"id\", \"siteId\", \"siteName\", \"name\", \"domain\", \"latitude\", \"longitude\", \"userType\", \"userType_label\", \"direction\"}),",
-                "    #\"Filtered Rows\" = Table.SelectRows(#\"Reordered Columns\", each true),",
-                "    #\"Added Conditional Column1\" = Table.AddColumn(#\"Filtered Rows\", \"direction_label\", each if [direction] = 1 then \"IN\" else if [direction] = 6 then \"IN\" else if [direction] = 7 then \"IN\" else \"OUT\"),",
-                "    #\"Filtered Rows1\" = Table.SelectRows(#\"Added Conditional Column1\", each ([siteName] <> \"Haukipudas/Kiiminkijoki (mt 847)\" and [siteName] <> \"Kiiminki (vt 20/ mt 848)\" and [siteName] <> \"Koiteli\" and [siteName] <> \"Limingantulli (Limingantie/Kempeleentie)\" and [siteName] <> \"Liminka/Ouluntie (mt847)\" and [siteName] <> \"Oulunlahti (Limingantie)\" and [siteName] <> \"Äimärautio (Limingantie)\"))",
+                "    Source = Sql.Databases(\"pbi-demo-server.database.windows.net\"),",
+                "    #\"pbi-demo-db\" = Source{[Name=\"pbi-demo-db\"]}[Data],",
+                "    pbi_siteChannels = #\"pbi-demo-db\"{[Schema=\"pbi\",Item=\"siteChannels\"]}[Data]",
                 "in",
-                "    #\"Filtered Rows1\""
+                "    pbi_siteChannels"
               ],
               "type": "m"
             }
